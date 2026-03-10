@@ -15,9 +15,9 @@ export const productos = [
     disponibilidad: { XS: true, S: true, M: true, L: true, XL: false },
     colores: ['Blanco', 'Negro', 'Beige'],
     imagenes: [
-      '/images/productos/clasica-1-1.jpg',
-      '/images/productos/clasica-1-2.jpg',
-      '/images/productos/clasica-1-3.jpg'
+      'https://placehold.co/800x1200/f5f5f5/404040.png?text=Blusa+Atelier',
+      'https://placehold.co/800x1200/e5e5e5/404040.png?text=Blusa+Atelier',
+      'https://placehold.co/800x1200/d5d5d5/404040.png?text=Blusa+Atelier'
     ],
     destacado: true
   },
@@ -31,8 +31,8 @@ export const productos = [
     disponibilidad: { XS: true, S: true, M: true, L: true, XL: true },
     colores: ['Negro', 'Café', 'Gris'],
     imagenes: [
-      '/images/productos/clasica-2-1.jpg',
-      '/images/productos/clasica-2-2.jpg'
+      'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=800&h=1200',
+      'https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=800&h=1200'
     ],
     destacado: false
   },
@@ -46,9 +46,9 @@ export const productos = [
     disponibilidad: { XS: true, S: true, M: false, L: true, XL: false },
     colores: ['Crudo', 'Arena'],
     imagenes: [
-      '/images/productos/clasica-3-1.jpg',
-      '/images/productos/clasica-3-2.jpg',
-      '/images/productos/clasica-3-3.jpg'
+      'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=800&h=1200',
+      'https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?w=800&h=1200',
+      'https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=800&h=1200'
     ],
     destacado: false
   },
@@ -62,8 +62,8 @@ export const productos = [
     disponibilidad: { XS: false, S: true, M: true, L: true, XL: true },
     colores: ['Blanco', 'Azul claro'],
     imagenes: [
-      '/images/productos/clasica-4-1.jpg',
-      '/images/productos/clasica-4-2.jpg'
+      'https://images.unsplash.com/photo-1624206112918-f140f087f9b5?w=800&h=1200',
+      'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=800&h=1200'
     ],
     destacado: false
   },
@@ -77,8 +77,8 @@ export const productos = [
     disponibilidad: { XS: true, S: true, M: true, L: true, XL: true },
     colores: ['Negro', 'Gris', 'Camel'],
     imagenes: [
-      '/images/productos/clasica-5-1.jpg',
-      '/images/productos/clasica-5-2.jpg'
+      'https://placehold.co/800x1200/2a2a2a/ffffff.png?text=Vestido+Midi',
+      'https://placehold.co/800x1200/1a1a1a/ffffff.png?text=Vestido+Midi'
     ],
     destacado: true
   },
@@ -92,8 +92,8 @@ export const productos = [
     disponibilidad: { XS: true, S: true, M: true, L: false, XL: true },
     colores: ['Negro', 'Blanco', 'Tierra'],
     imagenes: [
-      '/images/productos/clasica-6-1.jpg',
-      '/images/productos/clasica-6-2.jpg'
+      'https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=800&h=1200',
+      'https://images.unsplash.com/photo-1581655353564-df123a1eb820?w=800&h=1200'
     ],
     destacado: false
   },
@@ -107,8 +107,8 @@ export const productos = [
     disponibilidad: { XS: true, S: true, M: true, L: true, XL: false },
     colores: ['Negro', 'Gris'],
     imagenes: [
-      '/images/productos/clasica-7-1.jpg',
-      '/images/productos/clasica-7-2.jpg'
+      'https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=800&h=1200',
+      'https://images.unsplash.com/photo-1590330297626-d7aff25a0431?w=800&h=1200'
     ],
     destacado: false
   },
@@ -122,9 +122,9 @@ export const productos = [
     disponibilidad: { XS: false, S: true, M: true, L: true, XL: true },
     colores: ['Beige', 'Negro'],
     imagenes: [
-      '/images/productos/clasica-8-1.jpg',
-      '/images/productos/clasica-8-2.jpg',
-      '/images/productos/clasica-8-3.jpg'
+      'https://placehold.co/800x1200/d4c5b0/404040.png?text=Blazer+Desestructurado',
+      'https://placehold.co/800x1200/2a2a2a/ffffff.png?text=Blazer+Desestructurado',
+      'https://placehold.co/800x1200/c4b5a0/404040.png?text=Blazer+Desestructurado'
     ],
     destacado: true
   },
@@ -138,8 +138,8 @@ export const productos = [
     disponibilidad: { XS: true, S: true, M: true, L: true, XL: true },
     colores: ['Azul oscuro', 'Negro'],
     imagenes: [
-      '/images/productos/clasica-9-1.jpg',
-      '/images/productos/clasica-9-2.jpg'
+      'https://images.unsplash.com/photo-1604176354204-9268737828e4?w=800&h=1200',
+      'https://images.unsplash.com/photo-1582418702059-97ebafb35d09?w=800&h=1200'
     ],
     destacado: false
   },
@@ -153,8 +153,8 @@ export const productos = [
     disponibilidad: { XS: true, S: true, M: false, L: true, XL: true },
     colores: ['Negro', 'Blanco', 'Nude'],
     imagenes: [
-      '/images/productos/clasica-10-1.jpg',
-      '/images/productos/clasica-10-2.jpg'
+      'https://images.unsplash.com/photo-1562137369-1a1a0bc66744?w=800&h=1200',
+      'https://images.unsplash.com/photo-1509631179647-0177331693ae?w=800&h=1200'
     ],
     destacado: false
   },
@@ -168,8 +168,8 @@ export const productos = [
     disponibilidad: { XS: false, S: true, M: true, L: true, XL: false },
     colores: ['Camel', 'Negro', 'Gris'],
     imagenes: [
-      '/images/productos/clasica-11-1.jpg',
-      '/images/productos/clasica-11-2.jpg'
+      'https://images.unsplash.com/photo-1594633313593-bab3db0f4e1f?w=800&h=1200',
+      'https://images.unsplash.com/photo-1539533113208-f6df8cc8b543?w=800&h=1200'
     ],
     destacado: false
   },
@@ -183,8 +183,8 @@ export const productos = [
     disponibilidad: { XS: true, S: true, M: true, L: true, XL: true },
     colores: ['Verde militar', 'Beige', 'Negro'],
     imagenes: [
-      '/images/productos/clasica-12-1.jpg',
-      '/images/productos/clasica-12-2.jpg'
+      'https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=800&h=1200',
+      'https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=800&h=1200'
     ],
     destacado: false
   },
@@ -200,9 +200,9 @@ export const productos = [
     disponibilidad: { XS: true, S: true, M: true, L: false, XL: true },
     colores: ['Negro', 'Borgoña', 'Verde esmeralda'],
     imagenes: [
-      '/images/productos/noche-1-1.jpg',
-      '/images/productos/noche-1-2.jpg',
-      '/images/productos/noche-1-3.jpg'
+      'https://placehold.co/800x1200/1a1a1a/ffffff.png?text=Vestido+Satinado',
+      'https://placehold.co/800x1200/6b1f33/ffffff.png?text=Vestido+Satinado',
+      'https://placehold.co/800x1200/0d5447/ffffff.png?text=Vestido+Satinado'
     ],
     destacado: true
   },
@@ -216,8 +216,8 @@ export const productos = [
     disponibilidad: { XS: true, S: true, M: false, L: true, XL: false },
     colores: ['Dorado', 'Plateado', 'Negro'],
     imagenes: [
-      '/images/productos/noche-2-1.jpg',
-      '/images/productos/noche-2-2.jpg'
+      'https://images.unsplash.com/photo-1544957992-20514f595d6f?w=800&h=1200',
+      'https://images.unsplash.com/photo-1487412912498-0447578fcca8?w=800&h=1200'
     ],
     destacado: false
   },
@@ -231,8 +231,8 @@ export const productos = [
     disponibilidad: { XS: false, S: true, M: true, L: true, XL: true },
     colores: ['Negro', 'Azul noche'],
     imagenes: [
-      '/images/productos/noche-3-1.jpg',
-      '/images/productos/noche-3-2.jpg'
+      'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=800&h=1200',
+      'https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=800&h=1200'
     ],
     destacado: false
   },
@@ -246,9 +246,9 @@ export const productos = [
     disponibilidad: { XS: true, S: true, M: true, L: false, XL: false },
     colores: ['Borgoña', 'Negro'],
     imagenes: [
-      '/images/productos/noche-4-1.jpg',
-      '/images/productos/noche-4-2.jpg',
-      '/images/productos/noche-4-3.jpg'
+      'https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=800&h=1200',
+      'https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=800&h=1200',
+      'https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=800&h=1200'
     ],
     destacado: true
   },
@@ -262,8 +262,8 @@ export const productos = [
     disponibilidad: { XS: true, S: true, M: true, L: true, XL: true },
     colores: ['Marfil', 'Negro'],
     imagenes: [
-      '/images/productos/noche-5-1.jpg',
-      '/images/productos/noche-5-2.jpg'
+      'https://images.unsplash.com/photo-1485968579580-b6d095142e6e?w=800&h=1200',
+      'https://images.unsplash.com/photo-1624206112918-f140f087f9b5?w=800&h=1200'
     ],
     destacado: false
   },
@@ -277,8 +277,8 @@ export const productos = [
     disponibilidad: { XS: true, S: true, M: true, L: true, XL: false },
     colores: ['Champagne', 'Negro', 'Azul noche'],
     imagenes: [
-      '/images/productos/noche-6-1.jpg',
-      '/images/productos/noche-6-2.jpg'
+      'https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=800&h=1200',
+      'https://images.unsplash.com/photo-1590330297626-d7aff25a0431?w=800&h=1200'
     ],
     destacado: false
   },
@@ -292,9 +292,9 @@ export const productos = [
     disponibilidad: { XS: false, S: true, M: true, L: true, XL: false },
     colores: ['Negro', 'Plata'],
     imagenes: [
-      '/images/productos/noche-7-1.jpg',
-      '/images/productos/noche-7-2.jpg',
-      '/images/productos/noche-7-3.jpg'
+      'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=800&h=1200',
+      'https://images.unsplash.com/photo-1562137369-1a1a0bc66744?w=800&h=1200',
+      'https://images.unsplash.com/photo-1509631179647-0177331693ae?w=800&h=1200'
     ],
     destacado: true
   },
@@ -308,8 +308,8 @@ export const productos = [
     disponibilidad: { XS: false, S: true, M: true, L: true, XL: true },
     colores: ['Negro', 'Champagne'],
     imagenes: [
-      '/images/productos/noche-8-1.jpg',
-      '/images/productos/noche-8-2.jpg'
+      'https://images.unsplash.com/photo-1591369822096-ffd140ec948f?w=800&h=1200',
+      'https://images.unsplash.com/photo-1594223274512-ad4803739b7c?w=800&h=1200'
     ],
     destacado: false
   },
@@ -325,8 +325,8 @@ export const productos = [
     disponibilidad: { XS: true, S: true, M: true, L: true, XL: true },
     colores: ['Camel', 'Gris', 'Verde oliva'],
     imagenes: [
-      '/images/productos/co-1-1.jpg',
-      '/images/productos/co-1-2.jpg'
+      'https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=800&h=1200',
+      'https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=800&h=1200'
     ],
     destacado: true
   },
@@ -340,8 +340,8 @@ export const productos = [
     disponibilidad: { XS: true, S: true, M: true, L: true, XL: true },
     colores: ['Negro', 'Gris', 'Beige'],
     imagenes: [
-      '/images/productos/co-2-1.jpg',
-      '/images/productos/co-2-2.jpg'
+      'https://images.unsplash.com/photo-1594633313593-bab3db0f4e1f?w=800&h=1200',
+      'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=800&h=1200'
     ],
     destacado: false
   },
@@ -355,8 +355,8 @@ export const productos = [
     disponibilidad: { XS: false, S: true, M: true, L: true, XL: true },
     colores: ['Camel', 'Negro', 'Gris'],
     imagenes: [
-      '/images/productos/co-3-1.jpg',
-      '/images/productos/co-3-2.jpg'
+      'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=800&h=1200',
+      'https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=800&h=1200'
     ],
     destacado: true
   },
@@ -370,8 +370,8 @@ export const productos = [
     disponibilidad: { XS: true, S: true, M: true, L: false, XL: true },
     colores: ['Blanco', 'Azul claro', 'Gris'],
     imagenes: [
-      '/images/productos/co-4-1.jpg',
-      '/images/productos/co-4-2.jpg'
+      'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=800&h=1200',
+      'https://images.unsplash.com/photo-1624206112918-f140f087f9b5?w=800&h=1200'
     ],
     destacado: false
   },
@@ -385,9 +385,9 @@ export const productos = [
     disponibilidad: { XS: true, S: true, M: true, L: true, XL: false },
     colores: ['Negro', 'Tierra', 'Gris oscuro'],
     imagenes: [
-      '/images/productos/co-5-1.jpg',
-      '/images/productos/co-5-2.jpg',
-      '/images/productos/co-5-3.jpg'
+      'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=800&h=1200',
+      'https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?w=800&h=1200',
+      'https://images.unsplash.com/photo-1564257975821-b280f74e9df9?w=800&h=1200'
     ],
     destacado: false
   },
@@ -401,8 +401,8 @@ export const productos = [
     disponibilidad: { XS: true, S: true, M: true, L: true, XL: true },
     colores: ['Gris', 'Negro', 'Camel'],
     imagenes: [
-      '/images/productos/co-6-1.jpg',
-      '/images/productos/co-6-2.jpg'
+      'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=800&h=1200',
+      'https://images.unsplash.com/photo-1581655353564-df123a1eb820?w=800&h=1200'
     ],
     destacado: false
   },
@@ -416,8 +416,8 @@ export const productos = [
     disponibilidad: { XS: false, S: true, M: true, L: true, XL: true },
     colores: ['Beige', 'Gris melange', 'Café'],
     imagenes: [
-      '/images/productos/co-7-1.jpg',
-      '/images/productos/co-7-2.jpg'
+      'https://images.unsplash.com/photo-1604176354204-9268737828e4?w=800&h=1200',
+      'https://images.unsplash.com/photo-1582418702059-97ebafb35d09?w=800&h=1200'
     ],
     destacado: true
   },
@@ -433,9 +433,9 @@ export const productos = [
     disponibilidad: { XS: false, S: true, M: false, L: true, XL: false },
     colores: ['Negro'],
     imagenes: [
-      '/images/productos/edit-1-1.jpg',
-      '/images/productos/edit-1-2.jpg',
-      '/images/productos/edit-1-3.jpg'
+      'https://images.unsplash.com/photo-1566174053879-31528523f8ae?w=800&h=1200',
+      'https://images.unsplash.com/photo-1605763240000-58bddd6a6b68?w=800&h=1200',
+      'https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=800&h=1200'
     ],
     destacado: true,
     esLimitado: true,
@@ -451,8 +451,8 @@ export const productos = [
     disponibilidad: { XS: false, S: true, M: true, L: false, XL: false },
     colores: ['Marfil'],
     imagenes: [
-      '/images/productos/edit-2-1.jpg',
-      '/images/productos/edit-2-2.jpg'
+      'https://images.unsplash.com/photo-1544957992-20514f595d6f?w=800&h=1200',
+      'https://images.unsplash.com/photo-1487412912498-0447578fcca8?w=800&h=1200'
     ],
     destacado: true,
     esLimitado: true,
@@ -468,8 +468,8 @@ export const productos = [
     disponibilidad: { XS: false, S: true, M: true, L: true, XL: false },
     colores: ['Blanco roto'],
     imagenes: [
-      '/images/productos/edit-3-1.jpg',
-      '/images/productos/edit-3-2.jpg'
+      'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=800&h=1200',
+      'https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=800&h=1200'
     ],
     destacado: true,
     esLimitado: true,
@@ -478,24 +478,44 @@ export const productos = [
 ];
 
 // Funciones auxiliares para filtrar productos
+// Helper: Obtiene productos desde localStorage si están disponibles, sino usa los del mock
+const getProductos = () => {
+  if (typeof window !== 'undefined') {
+    try {
+      const stored = localStorage.getItem('velour-productos');
+      if (stored) {
+        return JSON.parse(stored);
+      }
+    } catch (error) {
+      console.error('Error al leer productos de localStorage:', error);
+    }
+  }
+  return productos;
+};
+
 export const getProductoById = (id) => {
-  return productos.find(p => p.id === id);
+  const allProductos = getProductos();
+  return allProductos.find(p => p.id === id);
 };
 
 export const getProductosByLinea = (linea) => {
-  return productos.filter(p => p.linea === linea);
+  const allProductos = getProductos();
+  return allProductos.filter(p => p.linea === linea);
 };
 
 export const getProductosDestacados = () => {
-  return productos.filter(p => p.destacado);
+  const allProductos = getProductos();
+  return allProductos.filter(p => p.destacado);
 };
 
 export const getProductosEdit = () => {
-  return productos.filter(p => p.linea === 'edit');
+  const allProductos = getProductos();
+  return allProductos.filter(p => p.linea === 'edit');
 };
 
 export const filtrarProductos = ({ linea, tallaSeleccionada, precioMin, precioMax }) => {
-  return productos.filter(producto => {
+  const allProductos = getProductos();
+  return allProductos.filter(producto => {
     const cumpleLinea = !linea || producto.linea === linea;
     const cumpleTalla = !tallaSeleccionada || producto.tallas.includes(tallaSeleccionada);
     const cumplePrecio = (!precioMin || producto.precio >= precioMin) && 

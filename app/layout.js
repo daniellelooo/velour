@@ -1,6 +1,9 @@
 import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import { CartProvider } from "./context/CartContext";
+import CartDrawer from "./components/CartDrawer";
+import AuthProvider from "./components/AuthProvider";
 
 export const metadata = {
   title: {
@@ -36,11 +39,16 @@ export default function RootLayout({ children }) {
   return (
     <html lang="es-CO">
       <body className="antialiased flex flex-col min-h-screen">
-        <Header />
-        <main className="flex-grow">
-          {children}
-        </main>
-        <Footer />
+        <AuthProvider>
+          <CartProvider>
+            <Header />
+            <main className="flex-grow">
+              {children}
+            </main>
+            <Footer />
+            <CartDrawer />
+          </CartProvider>
+        </AuthProvider>
       </body>
     </html>
   );

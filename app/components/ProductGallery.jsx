@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 export default function ProductGallery({ imagenes, nombreProducto }) {
   const [imagenActual, setImagenActual] = useState(0);
@@ -17,7 +18,15 @@ export default function ProductGallery({ imagenes, nombreProducto }) {
     <div className="space-y-4">
       {/* Imagen principal */}
       <div className="aspect-[3/4] bg-neutral-200 overflow-hidden relative group">
-        <div className="w-full h-full bg-gradient-to-br from-neutral-300 to-neutral-400" />
+        <Image
+          src={imagenes[imagenActual]}
+          alt={`${nombreProducto} - Imagen ${imagenActual + 1}`}
+          fill
+          className="object-cover"
+          sizes="(max-width: 768px) 100vw, 50vw"
+          priority={imagenActual === 0}
+          unoptimized
+        />
 
         {/* Indicador de zoom */}
         <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
@@ -46,13 +55,20 @@ export default function ProductGallery({ imagenes, nombreProducto }) {
             <button
               key={index}
               onClick={() => setImagenActual(index)}
-              className={`aspect-square bg-neutral-200 overflow-hidden border-2 transition-all ${
+              className={`aspect-square bg-neutral-200 overflow-hidden border-2 transition-all relative ${
                 index === imagenActual
                   ? "border-velour-black"
                   : "border-transparent opacity-60 hover:opacity-100"
               }`}
             >
-              <div className="w-full h-full bg-gradient-to-br from-neutral-300 to-neutral-400" />
+              <Image
+                src={imagen}
+                alt={`${nombreProducto} - Miniatura ${index + 1}`}
+                fill
+                className="object-cover"
+                sizes="120px"
+                unoptimized
+              />
             </button>
           ))}
         </div>

@@ -1,6 +1,8 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { lineas } from './data/lineas';
 import { getProductosDestacados, getProductosEdit } from './lib/productos';
+import ProductCard from './components/ProductCard';
 
 export default function Home() {
   const productosDestacados = getProductosDestacados().slice(0, 4);
@@ -9,25 +11,39 @@ export default function Home() {
   return (
     <div className="bg-background">
       {/* Hero Section */}
-      <section className="relative h-[85vh] min-h-[600px] flex items-center justify-center bg-velour-cream">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-velour-cream/50" />
+      <section className="relative h-[85vh] min-h-[600px] flex items-center justify-center overflow-hidden bg-neutral-900">
+        {/* Imagen de fondo */}
+        <div className="absolute inset-0">
+          <Image
+            src="https://placehold.co/1920x1080/1a1a1a/808080.png?text=VELOUR+Fashion"
+            alt="Fashion background"
+            fill
+            className="object-cover"
+            priority
+            sizes="100vw"
+            unoptimized
+          />
+        </div>
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
+        
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl md:text-7xl font-light tracking-tight text-velour-black mb-6">
+          <h1 className="text-5xl md:text-7xl font-light tracking-tight text-white mb-6 drop-shadow-lg">
             No somos <span className="italic">fast fashion</span>
           </h1>
-          <p className="text-xl md:text-2xl text-neutral-700 mb-8 max-w-2xl mx-auto font-light">
+          <p className="text-xl md:text-2xl text-white/95 mb-8 max-w-2xl mx-auto font-light drop-shadow-md">
             Cada prenda tiene una historia y un proceso. Diseño y producción local en Medellín.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/catalogo"
-              className="inline-flex items-center justify-center px-8 py-4 bg-velour-black text-white hover:bg-velour-charcoal transition-colors text-sm uppercase tracking-wider font-medium"
+              className="inline-flex items-center justify-center px-8 py-4 bg-white text-velour-black hover:bg-neutral-100 transition-colors text-sm uppercase tracking-wider font-medium shadow-lg"
             >
               Explorar Catálogo
             </Link>
             <Link
               href="/velour-edit"
-              className="inline-flex items-center justify-center px-8 py-4 border-2 border-velour-black text-velour-black hover:bg-velour-black hover:text-white transition-colors text-sm uppercase tracking-wider font-medium"
+              className="inline-flex items-center justify-center px-8 py-4 bg-white text-velour-black hover:bg-neutral-100 transition-colors text-sm uppercase tracking-wider font-medium shadow-lg"
             >
               Velour Edit
             </Link>
@@ -148,27 +164,7 @@ export default function Home() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {productosDestacados.map((producto) => (
-            <Link
-              key={producto.id}
-              href={`/producto/${producto.id}`}
-              className="group"
-            >
-              <div className="aspect-[3/4] bg-neutral-200 mb-4 overflow-hidden">
-                <div className="w-full h-full bg-gradient-to-br from-neutral-300 to-neutral-400 group-hover:scale-105 transition-transform duration-300" />
-              </div>
-              <h3 className="text-lg font-medium text-velour-black mb-1 group-hover:text-neutral-600 transition-colors">
-                {producto.nombre}
-              </h3>
-              <p className="text-sm text-neutral-500 mb-2">
-                {producto.linea === 'clasica' && 'Velour Clásica'}
-                {producto.linea === 'noche' && 'Velour Noche'}
-                {producto.linea === 'co' && 'Velour Co.'}
-                {producto.linea === 'edit' && 'Velour Edit'}
-              </p>
-              <p className="text-lg font-medium text-velour-black">
-                ${producto.precio.toLocaleString('es-CO')}
-              </p>
-            </Link>
+            <ProductCard key={producto.id} producto={producto} />
           ))}
         </div>
 
@@ -186,7 +182,16 @@ export default function Home() {
       <section className="py-20 bg-velour-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="aspect-[4/5] bg-gradient-to-br from-neutral-300 to-neutral-400" />
+            <div className="aspect-[4/5] bg-neutral-200 overflow-hidden relative">
+              <Image
+                src="https://placehold.co/800x1000/e5e5e5/404040.png?text=Valentina+Designer"
+                alt="Diseñadora trabajando"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                unoptimized
+              />
+            </div>
             <div>
               <h2 className="text-4xl md:text-5xl font-light text-velour-black mb-6">
                 Diseñado por Valentina

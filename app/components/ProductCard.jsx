@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { formatearPrecioConSimbolo, getNombreLinea } from "../lib/utils";
 
 export default function ProductCard({ producto }) {
@@ -15,7 +16,18 @@ export default function ProductCard({ producto }) {
       <div className="relative">
         {/* Imagen del producto */}
         <div className="aspect-[3/4] bg-neutral-200 mb-4 overflow-hidden relative">
-          <div className="w-full h-full bg-gradient-to-br from-neutral-300 to-neutral-400 group-hover:scale-105 transition-transform duration-300" />
+          {producto.imagenes && producto.imagenes.length > 0 ? (
+            <Image
+              src={producto.imagenes[0]}
+              alt={producto.nombre}
+              fill
+              className="object-cover group-hover:scale-105 transition-transform duration-300"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              unoptimized
+            />
+          ) : (
+            <div className="w-full h-full bg-gradient-to-br from-neutral-300 to-neutral-400 group-hover:scale-105 transition-transform duration-300" />
+          )}
 
           {/* Badges */}
           <div className="absolute top-3 left-3 flex flex-col gap-2">

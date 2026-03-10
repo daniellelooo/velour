@@ -1,27 +1,40 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, use } from 'react';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import ProductGallery from '../../components/ProductGallery';
+import ProductCard from '../../components/ProductCard';
 import { getProductoById, getProductosByLinea } from '../../lib/productos';
 import { formatearPrecioConSimbolo, getNombreLinea } from '../../lib/utils';
 import { generarMensajeProducto, abrirWhatsApp } from '../../lib/whatsapp';
+import { useCart } from '../../context/CartContext';
 
 export default function ProductoPage({ params }) {
-  const { id } = params;
-  const producto = getProductoById(id);
+  // Next.js 16+: params es una Promise, usar React.use() para unwrap
+  const { id } = use(params);
+  const { addToCart } = useCart();
 
+  // Usar lazy initialization para evitar cascading renders
+  const [producto, setProducto] = useState(() => getProductoById(id));
+  const [productosRelacionados, setProductosRelacionados] = useState(() => {
+    const prod = getProductoById(id);
+    if (prod) {
+      return getProductosByLinea(prod.linea)
+        .filter(p => p.id !== id)
+        .slice(0, 4);
+    }
+    return [];
+  });
   const [tallaSeleccionada, setTallaSeleccionada] = useState('');
 
+  // Si no se encuentra el producto, mostrar 404
   if (!producto) {
     notFound();
   }
 
   const nombreLinea = getNombreLinea(producto.linea);
-  const productosRelacionados = getProductosByLinea(producto.linea)
-    .filter(p => p.id !== producto.id)
-    .slice(0, 4);
 
   const handleComprarWhatsApp = () => {
     if (!tallaSeleccionada) {
@@ -31,6 +44,16 @@ export default function ProductoPage({ params }) {
 
     const url = generarMensajeProducto(producto, tallaSeleccionada);
     abrirWhatsApp(url);
+  };
+
+  const handleAddToCart = () => {
+    if (!tallaSeleccionada) {
+      alert('Por favor selecciona una talla antes de continuar');
+      return;
+    }
+
+    addToCart(producto, tallaSeleccionada, 1);
+    alert('✓ Producto añadido al carrito');
   };
 
   return (
@@ -143,7 +166,7 @@ export default function ProductoPage({ params }) {
                   {producto.colores.map((color) => (
                     <span
                       key={color}
-                      className="px-3 py-1 bg-neutral-100 text-neutral-700 text-sm"
+                      className="px-4 py-2 bg-neutral-100 text-neutral-800 text-sm rounded-full"
                     >
                       {color}
                     </span>
@@ -152,7 +175,21 @@ export default function ProductoPage({ params }) {
               </div>
             )}
 
-            {/* Botón de compra por WhatsApp */}
+            {/* Botones de compra */}
+            <button
+              onClick={handleAddToCart}
+              disabled={!tallaSeleccionada}
+              className={`
+                w-full py-4 px-6 text-sm uppercase tracking-wider font-medium transition-all mb-3
+                ${tallaSeleccionada
+                  ? 'bg-velour-black text-white hover:bg-velour-charcoal'
+                  : 'bg-neutral-200 text-neutral-400 cursor-not-allowed'
+                }
+              `}
+            >
+              Añadir al Carrito
+            </button>
+
             <button
               onClick={handleComprarWhatsApp}
               disabled={!tallaSeleccionada}
@@ -160,8 +197,8 @@ export default function ProductoPage({ params }) {
                 w-full py-4 px-6 text-sm uppercase tracking-wider font-medium transition-all mb-4
                 flex items-center justify-center gap-2
                 ${tallaSeleccionada
-                  ? 'bg-velour-black text-white hover:bg-velour-charcoal'
-                  : 'bg-neutral-200 text-neutral-400 cursor-not-allowed'
+                  ? 'border-2 border-velour-black text-velour-black hover:bg-velour-black hover:text-white'
+                  : 'border-2 border-neutral-200 text-neutral-400 cursor-not-allowed'
                 }
               `}
             >
@@ -172,7 +209,7 @@ export default function ProductoPage({ params }) {
             </button>
 
             <p className="text-xs text-neutral-500 text-center mb-6">
-              Al hacer clic, se abrirá WhatsApp con tu consulta prellenada
+              Añade al carrito para seguir comprando o contacta directamente por WhatsApp
             </p>
 
             {/* Info adicional */}
@@ -213,17 +250,7 @@ export default function ProductoPage({ params }) {
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {productosRelacionados.map((prod) => (
-                <Link key={prod.id} href={`/producto/${prod.id}`} className="group">
-                  <div className="aspect-[3/4] bg-neutral-200 mb-4 overflow-hidden">
-                    <div className="w-full h-full bg-gradient-to-br from-neutral-300 to-neutral-400 group-hover:scale-105 transition-transform duration-300" />
-                  </div>
-                  <h3 className="text-base font-medium text-velour-black mb-1 group-hover:text-neutral-600 transition-colors">
-                    {prod.nombre}
-                  </h3>
-                  <p className="text-base font-medium text-velour-black">
-                    {formatearPrecioConSimbolo(prod.precio)}
-                  </p>
-                </Link>
+                <ProductCard key={prod.id} producto={prod} />
               ))}
             </div>
           </div>
