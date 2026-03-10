@@ -1,26 +1,95 @@
 @import "tailwindcss";
 
+/* Paleta de colores Velour Studio - Elegante, contemporáneo, atemporal */
 :root {
+  /* Colores base */
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #1a1a1a;
+  
+  /* Paleta de marca - Neutros elegantes */
+  --velour-cream: #F8F6F3;
+  --velour-beige: #E8DED2;
+  --velour-taupe: #8B7E74;
+  --velour-charcoal: #2D2D2D;
+  --velour-black: #1A1A1A;
+  
+  /* Acentos oscuros */
+  --velour-burgundy: #6B2737;
+  --velour-forest: #3A4A3C;
+  
+  /* Neutrales complementarios */
+  --neutral-50: #FAFAFA;
+  --neutral-100: #F5F5F5;
+  --neutral-200: #E5E5E5;
+  --neutral-300: #D4D4D4;
+  --neutral-400: #A3A3A3;
+  --neutral-500: #737373;
+  --neutral-600: #525252;
+  --neutral-700: #404040;
+  --neutral-800: #262626;
+  --neutral-900: #171717;
 }
 
 @theme inline {
+  /* Colores Velour personalizados */
+  --color-velour-cream: var(--velour-cream);
+  --color-velour-beige: var(--velour-beige);
+  --color-velour-taupe: var(--velour-taupe);
+  --color-velour-charcoal: var(--velour-charcoal);
+  --color-velour-black: var(--velour-black);
+  --color-velour-burgundy: var(--velour-burgundy);
+  --color-velour-forest: var(--velour-forest);
+  
+  /* Neutral scale */
+  --color-neutral-50: var(--neutral-50);
+  --color-neutral-100: var(--neutral-100);
+  --color-neutral-200: var(--neutral-200);
+  --color-neutral-300: var(--neutral-300);
+  --color-neutral-400: var(--neutral-400);
+  --color-neutral-500: var(--neutral-500);
+  --color-neutral-600: var(--neutral-600);
+  --color-neutral-700: var(--neutral-700);
+  --color-neutral-800: var(--neutral-800);
+  --color-neutral-900: var(--neutral-900);
+  
+  /* Background y foreground */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  
+  /* Tipografía - Sans serif moderna para todo */
+  --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  
+  /* Espaciado personalizado si es necesario */
+  --spacing-header: 5rem;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Utilidades globales */
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Scrollbar personalizado */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--neutral-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--neutral-400);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neutral-500);
 }
