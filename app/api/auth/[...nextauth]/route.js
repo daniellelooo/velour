@@ -9,7 +9,7 @@ const ADMIN_USER = {
   name: "Valentina Ríos",
   // Password hasheado: "velour2024"
   // Generado con: bcrypt.hashSync("velour2024", 10)
-  password: "$2a$10$rQYHV.xJXJH8qPwMnqzJSeO/9.FmHEH9qZ9YZVmq7xK1N4nYfhQ4m",
+  password: "$2b$10$/f/MVnzHFG6hEzlhJdzJUOjQL4J6wjQF70fnJ9xwkxIiHDc8GP1L6",
 };
 
 const handler = NextAuth({

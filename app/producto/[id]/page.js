@@ -10,11 +10,14 @@ import { getProductoById, getProductosByLinea } from '../../lib/productos';
 import { formatearPrecioConSimbolo, getNombreLinea } from '../../lib/utils';
 import { generarMensajeProducto, abrirWhatsApp } from '../../lib/whatsapp';
 import { useCart } from '../../context/CartContext';
+import { useToast } from '../../context/ToastContext';
 
 export default function ProductoPage({ params }) {
   // Next.js 16+: params es una Promise, usar React.use() para unwrap
   const { id } = use(params);
   const { addToCart } = useCart();
+  const { mostrarToast } = useToast();
+  const [modalTallasAbierto, setModalTallasAbierto] = useState(false);
 
   // Usar lazy initialization para evitar cascading renders
   const [producto, setProducto] = useState(() => getProductoById(id));
@@ -38,7 +41,7 @@ export default function ProductoPage({ params }) {
 
   const handleComprarWhatsApp = () => {
     if (!tallaSeleccionada) {
-      alert('Por favor selecciona una talla antes de continuar');
+      mostrarToast('Por favor selecciona una talla antes de continuar', 'aviso');
       return;
     }
 
@@ -48,12 +51,12 @@ export default function ProductoPage({ params }) {
 
   const handleAddToCart = () => {
     if (!tallaSeleccionada) {
-      alert('Por favor selecciona una talla antes de continuar');
+      mostrarToast('Por favor selecciona una talla antes de continuar', 'aviso');
       return;
     }
 
     addToCart(producto, tallaSeleccionada, 1);
-    alert('✓ Producto añadido al carrito');
+    mostrarToast('Producto añadido al carrito', 'exito');
   };
 
   return (
@@ -86,7 +89,7 @@ export default function ProductoPage({ params }) {
           </div>
 
           {/* Información del producto */}
-          <div className="lg:sticky lg:top-28 lg:self-start">
+          <div className="lg:sticky lg:top-28 lg:self-start lg:max-h-[calc(100vh-7rem)] lg:overflow-y-auto lg:pr-2">
             {/* Badges */}
             <div className="flex gap-2 mb-4">
               {producto.esLimitado && (
@@ -120,12 +123,19 @@ export default function ProductoPage({ params }) {
                 <label className="text-sm font-medium text-neutral-900 uppercase tracking-wider">
                   Selecciona tu talla
                 </label>
-                {producto.esLimitado && producto.unidadesRestantes && (
-                  <span className="text-sm text-velour-burgundy font-medium">
-                    Quedan {producto.unidadesRestantes} unidades
-                  </span>
-                )}
+                <button
+                  type="button"
+                  onClick={() => setModalTallasAbierto(true)}
+                  className="text-xs text-neutral-500 underline underline-offset-2 hover:text-velour-black transition-colors"
+                >
+                  ¿Cuál es mi talla?
+                </button>
               </div>
+              {producto.esLimitado && producto.unidadesRestantes && (
+                <span className="text-sm text-velour-burgundy font-medium block mb-3">
+                  Quedan {producto.unidadesRestantes} unidades
+                </span>
+              )}
               <div className="grid grid-cols-5 gap-3">
                 {producto.tallas.map((talla) => {
                   const disponible = producto.disponibilidad?.[talla];
@@ -255,7 +265,70 @@ export default function ProductoPage({ params }) {
             </div>
           </div>
         )}
-      </div>
+
+      {/* Modal Guía de Tallas */}
+      {modalTallasAbierto && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-velour-black/50 backdrop-blur-sm"
+          onClick={() => setModalTallasAbierto(false)}
+        >
+
+          <div
+            className="bg-white max-w-lg w-full p-8 relative max-h-[90vh] overflow-y-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setModalTallasAbierto(false)}
+              className="absolute top-4 right-4 text-neutral-400 hover:text-velour-black transition-colors"
+              aria-label="Cerrar guía de tallas"
+            >
+              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+
+            <h2 className="text-2xl font-light text-velour-black mb-2">
+              Guía de tallas
+            </h2>
+            <p className="text-sm text-neutral-500 mb-6">
+              Medidas en centímetros. Tómalas sobre ropa interior ajustada.
+            </p>
+
+            <table className="w-full text-sm border-collapse mb-6">
+              <thead>
+                <tr className="bg-velour-cream">
+                  <th className="py-3 px-4 text-left font-medium text-velour-black border border-neutral-200">Talla</th>
+                  <th className="py-3 px-4 text-center font-medium text-velour-black border border-neutral-200">Busto (cm)</th>
+                  <th className="py-3 px-4 text-center font-medium text-velour-black border border-neutral-200">Cintura (cm)</th>
+                  <th className="py-3 px-4 text-center font-medium text-velour-black border border-neutral-200">Cadera (cm)</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  { talla: 'XS', busto: '80-83', cintura: '60-63', cadera: '86-89' },
+                  { talla: 'S',  busto: '84-87', cintura: '64-67', cadera: '90-93' },
+                  { talla: 'M',  busto: '88-91', cintura: '68-71', cadera: '94-97' },
+                  { talla: 'L',  busto: '92-96', cintura: '72-76', cadera: '98-102' },
+                  { talla: 'XL', busto: '97-101', cintura: '77-82', cadera: '103-108' },
+                ].map(({ talla, busto, cintura, cadera }, i) => (
+                  <tr key={talla} className={i % 2 === 0 ? 'bg-white' : 'bg-neutral-50'}>
+                    <td className="py-3 px-4 font-medium text-velour-black border border-neutral-200">{talla}</td>
+                    <td className="py-3 px-4 text-center text-neutral-700 border border-neutral-200">{busto}</td>
+                    <td className="py-3 px-4 text-center text-neutral-700 border border-neutral-200">{cintura}</td>
+                    <td className="py-3 px-4 text-center text-neutral-700 border border-neutral-200">{cadera}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+
+            <div className="bg-neutral-50 p-4 text-xs text-neutral-600 space-y-1">
+              <p><strong>Consejo:</strong> Si estás entre dos tallas, te recomendamos elegir la mayor.</p>
+              <p>¿Tienes dudas? Escríbenos por WhatsApp y te ayudamos a elegir.</p>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
     </div>
   );
 }

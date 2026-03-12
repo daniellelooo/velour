@@ -2,10 +2,13 @@ import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { CartProvider } from "./context/CartContext";
+import { WishlistProvider } from "./context/WishlistContext";
+import { ToastProvider } from "./context/ToastContext";
 import CartDrawer from "./components/CartDrawer";
 import AuthProvider from "./components/AuthProvider";
 
 export const metadata = {
+  metadataBase: new URL('https://velour.studio'),
   title: {
     template: '%s | Velour Studio',
     default: 'Velour Studio - Moda femenina de autor en Medellín',
@@ -40,14 +43,18 @@ export default function RootLayout({ children }) {
     <html lang="es-CO">
       <body className="antialiased flex flex-col min-h-screen">
         <AuthProvider>
-          <CartProvider>
-            <Header />
-            <main className="flex-grow">
-              {children}
-            </main>
-            <Footer />
-            <CartDrawer />
-          </CartProvider>
+          <ToastProvider>
+            <CartProvider>
+              <WishlistProvider>
+                <Header />
+                <main className="flex-grow">
+                  {children}
+                </main>
+                <Footer />
+                <CartDrawer />
+              </WishlistProvider>
+            </CartProvider>
+          </ToastProvider>
         </AuthProvider>
       </body>
     </html>

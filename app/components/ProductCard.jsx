@@ -1,15 +1,27 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import { formatearPrecioConSimbolo, getNombreLinea } from "../lib/utils";
+import { useWishlist } from "../context/WishlistContext";
 
 export default function ProductCard({ producto }) {
   const nombreLinea = getNombreLinea(producto.linea);
+  const { estaEnWishlist, toggleWishlist, isHydrated } = useWishlist();
+
+  const enWishlist = isHydrated && estaEnWishlist(producto.id);
 
   // Verificar cuántas tallas disponibles tiene
   const tallasDisponibles = Object.values(producto.disponibilidad || {}).filter(
     Boolean,
   ).length;
   const pocasUnidades = tallasDisponibles <= 2;
+
+  const handleToggleWishlist = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    toggleWishlist(producto);
+  };
 
   return (
     <Link href={`/producto/${producto.id}`} className="group">
@@ -42,6 +54,30 @@ export default function ProductCard({ producto }) {
               </span>
             )}
           </div>
+
+          {/* Botón Wishlist */}
+          <button
+            onClick={handleToggleWishlist}
+            className="absolute top-3 right-3 p-2 bg-white/90 hover:bg-white rounded-full shadow-sm transition-all opacity-0 group-hover:opacity-100 focus:opacity-100"
+            aria-label={enWishlist ? "Quitar de favoritos" : "Agregar a favoritos"}
+          >
+            <svg
+              className={`h-4 w-4 transition-colors ${
+                enWishlist
+                  ? "fill-velour-burgundy stroke-velour-burgundy"
+                  : "fill-none stroke-neutral-700"
+              }`}
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+              />
+            </svg>
+          </button>
 
           {/* Hover overlay */}
           <div className="absolute inset-0 bg-velour-black/0 group-hover:bg-velour-black/5 transition-colors" />

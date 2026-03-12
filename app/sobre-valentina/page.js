@@ -1,3 +1,14 @@
+import Image from 'next/image';
+
+export const metadata = {
+  title: 'Sobre Valentina',
+  description: 'Conoce la historia de Valentina Ríos, la diseñadora detrás de Velour Studio. Un proyecto de moda femenina de autor nacido en Laureles, Medellín.',
+  openGraph: {
+    title: 'Sobre Valentina | Velour Studio',
+    description: 'La historia detrás de Velour Studio y la filosofía de moda lenta y consciente.',
+  },
+};
+
 export default function SobreValentinaPage() {
   return (
     <div className="min-h-screen bg-background">
@@ -17,8 +28,15 @@ export default function SobreValentinaPage() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         {/* Sección: El inicio */}
         <div className="mb-16">
-          <div className="aspect-[16/9] bg-neutral-200 mb-8">
-            <div className="w-full h-full bg-gradient-to-br from-neutral-300 to-neutral-400" />
+          <div className="aspect-[16/9] bg-neutral-200 mb-8 relative overflow-hidden">
+            <Image
+              src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&h=675&fit=crop"
+              alt="Valentina en su studio de diseño en Laureles, Medellín"
+              fill
+              className="object-cover"
+              sizes="(max-width: 896px) 100vw, 896px"
+              unoptimized
+            />
           </div>
           
           <blockquote className="text-2xl font-light text-velour-black mb-8 italic">

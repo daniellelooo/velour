@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { esEmailValido, esTelefonoValido } from '../lib/utils';
 import { generarMensajeAgendarVisita, abrirWhatsApp } from '../lib/whatsapp';
+import { useToast } from '../context/ToastContext';
 
 export default function ContactoPage() {
   const [formData, setFormData] = useState({
@@ -18,6 +19,7 @@ export default function ContactoPage() {
   const [errors, setErrors] = useState({});
   const [enviando, setEnviando] = useState(false);
   const [enviado, setEnviado] = useState(false);
+  const { mostrarToast } = useToast();
 
   const lineas = [
     { value: '', label: 'Selecciona una línea' },
@@ -117,7 +119,7 @@ export default function ContactoPage() {
       });
     } catch (error) {
       console.error('Error al agendar visita:', error);
-      alert('Hubo un error al enviar el formulario. Por favor intenta de nuevo.');
+      mostrarToast('Hubo un error al enviar el formulario. Por favor intenta de nuevo.', 'error');
     } finally {
       setEnviando(false);
     }

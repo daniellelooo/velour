@@ -4,6 +4,14 @@ import { lineas } from './data/lineas';
 import { getProductosDestacados, getProductosEdit } from './lib/productos';
 import ProductCard from './components/ProductCard';
 
+// Fotos de Unsplash para las 4 líneas de producto
+const lineasImagenes = {
+  clasica: 'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=800&h=1000&fit=crop',
+  noche:   'https://images.unsplash.com/photo-1542295669297-4d352b042bca?w=800&h=1000&fit=crop',
+  co:      'https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=800&h=1000&fit=crop',
+  edit:    'https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=800&h=1000&fit=crop',
+};
+
 export default function Home() {
   const productosDestacados = getProductosDestacados().slice(0, 4);
   const productosEdit = getProductosEdit();
@@ -15,8 +23,8 @@ export default function Home() {
         {/* Imagen de fondo */}
         <div className="absolute inset-0">
           <Image
-            src="https://placehold.co/1920x1080/1a1a1a/808080.png?text=VELOUR+Fashion"
-            alt="Fashion background"
+            src="https://images.unsplash.com/photo-1558171813-3b9d5384f67e?w=1920&h=1080&fit=crop"
+            alt="Colección Velour Studio"
             fill
             className="object-cover"
             priority
@@ -69,26 +77,32 @@ export default function Home() {
               href={`/catalogo?linea=${linea.slug}`}
               className="group relative overflow-hidden bg-neutral-100 hover:shadow-lg transition-all duration-300"
             >
-              <div className="aspect-[4/5] bg-gradient-to-br from-neutral-200 to-neutral-300 flex items-center justify-center">
-                <div className="text-center p-8">
-                  <div 
-                    className="w-24 h-24 rounded-full mx-auto mb-6 opacity-30"
-                    style={{ backgroundColor: linea.color }}
-                  />
-                  <h3 className="text-2xl font-light text-velour-black mb-2">
+              <div className="aspect-[4/5] relative overflow-hidden">
+                <Image
+                  src={lineasImagenes[linea.id]}
+                  alt={linea.nombre}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  unoptimized
+                />
+                {/* Overlay gradiente */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                {/* Contenido sobre la imagen */}
+                <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
+                  <h3 className="text-2xl font-light mb-2">
                     {linea.nombre}
                   </h3>
-                  <p className="text-sm text-neutral-600 mb-4">
+                  <p className="text-sm text-white/80 mb-2">
                     {linea.descripcion}
                   </p>
-                  <p className="text-sm font-medium text-neutral-800">
+                  <p className="text-sm font-medium text-white/90">
                     {linea.rangoPrecios}
                   </p>
                 </div>
               </div>
-              <div className="absolute inset-0 bg-velour-black/0 group-hover:bg-velour-black/5 transition-colors" />
-              <div className="absolute bottom-6 left-0 right-0 text-center opacity-0 group-hover:opacity-100 transition-opacity">
-                <span className="text-sm uppercase tracking-wider text-velour-black font-medium">
+              <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                <span className="text-xs uppercase tracking-wider text-white bg-velour-black/80 px-3 py-1 font-medium">
                   Ver colección →
                 </span>
               </div>
@@ -184,8 +198,8 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="aspect-[4/5] bg-neutral-200 overflow-hidden relative">
               <Image
-                src="https://placehold.co/800x1000/e5e5e5/404040.png?text=Valentina+Designer"
-                alt="Diseñadora trabajando"
+                src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=800&h=1000&fit=crop"
+                alt="Valentina Ríos, diseñadora y fundadora de Velour Studio"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"

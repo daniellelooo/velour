@@ -7,6 +7,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { formatearPrecioConSimbolo, getNombreLinea } from '../lib/utils';
 import ProductForm from './components/ProductForm';
+import ModalConfirmacion from '../components/ModalConfirmacion';
+import { useToast } from '../context/ToastContext';
 
 export default function AdminPage() {
   const router = useRouter();
@@ -18,6 +20,8 @@ export default function AdminPage() {
   const [showAddModal, setShowAddModal] = useState(false);
   const [editingProduct, setEditingProduct] = useState(null);
   const [filter, setFilter] = useState('all');
+  const [modalEliminar, setModalEliminar] = useState(null); // { productId }
+  const { mostrarToast } = useToast();
 
   useEffect(() => {
     // Cargar productos cuando el usuario está autenticado
@@ -66,11 +70,15 @@ export default function AdminPage() {
   };
 
   const handleDeleteProduct = (productId) => {
-    if (confirm('¿Estás segura de eliminar este producto?')) {
-      const updatedProducts = productos.filter(p => p.id !== productId);
-      setProductos(updatedProducts);
-      localStorage.setItem('velour-productos', JSON.stringify(updatedProducts));
-    }
+    setModalEliminar({ productId });
+  };
+
+  const confirmarEliminarProducto = () => {
+    const { productId } = modalEliminar;
+    const updatedProducts = productos.filter(p => p.id !== productId);
+    setProductos(updatedProducts);
+    localStorage.setItem('velour-productos', JSON.stringify(updatedProducts));
+    mostrarToast('Producto eliminado', 'exito');
   };
 
   const handleToggleDestacado = (productId) => {
@@ -100,7 +108,7 @@ export default function AdminPage() {
     setShowAddModal(false);
     
     // Mensaje de éxito
-    alert(editingProduct ? '✓ Producto actualizado correctamente' : '✓ Producto creado correctamente');
+    mostrarToast(editingProduct ? 'Producto actualizado correctamente' : 'Producto creado correctamente', 'exito');
   };
 
   const filteredProducts = productos.filter(p => {
@@ -177,13 +185,6 @@ export default function AdminPage() {
             <Link href="/" className="text-sm text-neutral-600 hover:text-velour-black">
               ← Volver al sitio
             </Link>
-          </div>
-
-          <div className="mt-8 pt-6 border-t border-neutral-200">
-            <p className="text-xs text-neutral-500 text-center">
-              Credenciales de prueba:<br />
-              <span className="font-mono">admin@velourstudio.com</span> / <span className="font-mono">velour2024</span>
-            </p>
           </div>
         </div>
       </div>
@@ -399,6 +400,18 @@ export default function AdminPage() {
             setEditingProduct(null);
             setShowAddModal(false);
           }}
+        />
+      )}
+
+      {/* Modal de confirmación para eliminar producto */}
+      {modalEliminar && (
+        <ModalConfirmacion
+          titulo="¿Eliminar producto?"
+          mensaje="Esta acción no se puede deshacer."
+          textoConfirmar="Eliminar"
+          peligroso={true}
+          onConfirmar={confirmarEliminarProducto}
+          onCancelar={() => setModalEliminar(null)}
         />
       )}
     </div>

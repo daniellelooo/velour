@@ -15,9 +15,9 @@ export const productos = [
     disponibilidad: { XS: true, S: true, M: true, L: true, XL: false },
     colores: ['Blanco', 'Negro', 'Beige'],
     imagenes: [
-      'https://placehold.co/800x1200/f5f5f5/404040.png?text=Blusa+Atelier',
-      'https://placehold.co/800x1200/e5e5e5/404040.png?text=Blusa+Atelier',
-      'https://placehold.co/800x1200/d5d5d5/404040.png?text=Blusa+Atelier'
+      'https://images.unsplash.com/photo-1485968579580-b6d095142e6e?w=800&h=1200&fit=crop',
+      'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=800&h=1200&fit=crop',
+      'https://images.unsplash.com/photo-1524275539700-cf51138f679b?w=800&h=1200&fit=crop'
     ],
     destacado: true
   },
@@ -31,8 +31,8 @@ export const productos = [
     disponibilidad: { XS: true, S: true, M: true, L: true, XL: true },
     colores: ['Negro', 'Café', 'Gris'],
     imagenes: [
-      'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=800&h=1200',
-      'https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=800&h=1200'
+      'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=800&h=1200&fit=crop',
+      'https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=800&h=1200&fit=crop'
     ],
     destacado: false
   },
@@ -77,8 +77,8 @@ export const productos = [
     disponibilidad: { XS: true, S: true, M: true, L: true, XL: true },
     colores: ['Negro', 'Gris', 'Camel'],
     imagenes: [
-      'https://placehold.co/800x1200/2a2a2a/ffffff.png?text=Vestido+Midi',
-      'https://placehold.co/800x1200/1a1a1a/ffffff.png?text=Vestido+Midi'
+      'https://images.unsplash.com/photo-1551803091-e20673f15770?w=800&h=1200&fit=crop',
+      'https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=800&h=1200&fit=crop'
     ],
     destacado: true
   },
@@ -122,9 +122,9 @@ export const productos = [
     disponibilidad: { XS: false, S: true, M: true, L: true, XL: true },
     colores: ['Beige', 'Negro'],
     imagenes: [
-      'https://placehold.co/800x1200/d4c5b0/404040.png?text=Blazer+Desestructurado',
-      'https://placehold.co/800x1200/2a2a2a/ffffff.png?text=Blazer+Desestructurado',
-      'https://placehold.co/800x1200/c4b5a0/404040.png?text=Blazer+Desestructurado'
+      'https://images.unsplash.com/photo-1548624313-0396c75e4b1a?w=800&h=1200&fit=crop',
+      'https://images.unsplash.com/photo-1591391473556-8f8e73df9b9b?w=800&h=1200&fit=crop',
+      'https://images.unsplash.com/photo-1620218588219-2e93d4d86ee7?w=800&h=1200&fit=crop'
     ],
     destacado: true
   },
@@ -200,9 +200,9 @@ export const productos = [
     disponibilidad: { XS: true, S: true, M: true, L: false, XL: true },
     colores: ['Negro', 'Borgoña', 'Verde esmeralda'],
     imagenes: [
-      'https://placehold.co/800x1200/1a1a1a/ffffff.png?text=Vestido+Satinado',
-      'https://placehold.co/800x1200/6b1f33/ffffff.png?text=Vestido+Satinado',
-      'https://placehold.co/800x1200/0d5447/ffffff.png?text=Vestido+Satinado'
+      'https://images.unsplash.com/photo-1566174053879-31528523f8ae?w=800&h=1200&fit=crop',
+      'https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=800&h=1200&fit=crop',
+      'https://images.unsplash.com/photo-1518611012118-696072aa579a?w=800&h=1200&fit=crop'
     ],
     destacado: true
   },
@@ -231,8 +231,8 @@ export const productos = [
     disponibilidad: { XS: false, S: true, M: true, L: true, XL: true },
     colores: ['Negro', 'Azul noche'],
     imagenes: [
-      'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=800&h=1200',
-      'https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=800&h=1200'
+      'https://images.unsplash.com/photo-1509631179647-0177331693ae?w=800&h=1200&fit=crop',
+      'https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=800&h=1200&fit=crop'
     ],
     destacado: false
   },
@@ -246,9 +246,9 @@ export const productos = [
     disponibilidad: { XS: true, S: true, M: true, L: false, XL: false },
     colores: ['Borgoña', 'Negro'],
     imagenes: [
-      'https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=800&h=1200',
-      'https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=800&h=1200',
-      'https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=800&h=1200'
+      'https://images.unsplash.com/photo-1502716119720-b23a93e5fe1b?w=800&h=1200&fit=crop',
+      'https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=800&h=1200&fit=crop',
+      'https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=800&h=1200&fit=crop'
     ],
     destacado: true
   },
@@ -277,8 +277,8 @@ export const productos = [
     disponibilidad: { XS: true, S: true, M: true, L: true, XL: false },
     colores: ['Champagne', 'Negro', 'Azul noche'],
     imagenes: [
-      'https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=800&h=1200',
-      'https://images.unsplash.com/photo-1590330297626-d7aff25a0431?w=800&h=1200'
+      'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=800&h=1200&fit=crop',
+      'https://images.unsplash.com/photo-1571513800374-df1bbe650e56?w=800&h=1200&fit=crop'
     ],
     destacado: false
   },
@@ -385,9 +385,9 @@ export const productos = [
     disponibilidad: { XS: true, S: true, M: true, L: true, XL: false },
     colores: ['Negro', 'Tierra', 'Gris oscuro'],
     imagenes: [
-      'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=800&h=1200',
-      'https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?w=800&h=1200',
-      'https://images.unsplash.com/photo-1564257975821-b280f74e9df9?w=800&h=1200'
+      'https://images.unsplash.com/photo-1564257975821-b280f74e9df9?w=800&h=1200&fit=crop',
+      'https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?w=800&h=1200&fit=crop',
+      'https://images.unsplash.com/photo-1536992266094-82847e1fd431?w=800&h=1200&fit=crop'
     ],
     destacado: false
   },
@@ -416,8 +416,8 @@ export const productos = [
     disponibilidad: { XS: false, S: true, M: true, L: true, XL: true },
     colores: ['Beige', 'Gris melange', 'Café'],
     imagenes: [
-      'https://images.unsplash.com/photo-1604176354204-9268737828e4?w=800&h=1200',
-      'https://images.unsplash.com/photo-1582418702059-97ebafb35d09?w=800&h=1200'
+      'https://images.unsplash.com/photo-1536992266094-82847e1fd431?w=800&h=1200&fit=crop',
+      'https://images.unsplash.com/photo-1564257975821-b280f74e9df9?w=800&h=1200&fit=crop'
     ],
     destacado: true
   },
@@ -468,8 +468,8 @@ export const productos = [
     disponibilidad: { XS: false, S: true, M: true, L: true, XL: false },
     colores: ['Blanco roto'],
     imagenes: [
-      'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=800&h=1200',
-      'https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=800&h=1200'
+      'https://images.unsplash.com/photo-1594633313593-bab3db0f4e1f?w=800&h=1200&fit=crop',
+      'https://images.unsplash.com/photo-1509631179647-0177331693ae?w=800&h=1200&fit=crop'
     ],
     destacado: true,
     esLimitado: true,

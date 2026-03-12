@@ -1,6 +1,11 @@
 {
   "version": 1,
   "skills": {
+    "accessibility-compliance": {
+      "source": "wshobson/agents",
+      "sourceType": "github",
+      "computedHash": "3e91f124d66be32b7f16892c6bcfb272fabe990cbeee2e893d8815d21e0c4b49"
+    },
     "frontend-design": {
       "source": "anthropics/skills",
       "sourceType": "github",
@@ -11,10 +16,35 @@
       "sourceType": "github",
       "computedHash": "c31ddd68ba5798a79a516c619b1e1fc4408cc4876ad600fefa4f5add4425719d"
     },
+    "nextjs-app-router-patterns": {
+      "source": "wshobson/agents",
+      "sourceType": "github",
+      "computedHash": "04c1df896cc2c9ef824d618b95d21686c5b8e24e5cb32b3d6fe9d97d4b661536"
+    },
+    "nextjs-best-practices": {
+      "source": "sickn33/antigravity-awesome-skills",
+      "sourceType": "github",
+      "computedHash": "f57b0625e5e9e64dc9f3d7333c81e73f445fd9c65fe7cd0fd99a779a2e78dffd"
+    },
+    "seo-audit": {
+      "source": "coreyhaines31/marketingskills",
+      "sourceType": "github",
+      "computedHash": "941f6f4db0f79248f6480256cf1838ed19bc1a0d70f499bb756f491142625cb4"
+    },
+    "tailwind-design-system": {
+      "source": "wshobson/agents",
+      "sourceType": "github",
+      "computedHash": "0fc7b79d08ee5168d46c6887014cbe5bd02f2c5e458858470e20fc8ecedefb46"
+    },
     "vercel-react-best-practices": {
       "source": "vercel-labs/agent-skills",
       "sourceType": "github",
       "computedHash": "3ff06f0712886f7c2660d6746856c22d3127bd6568ddde29ddad8b72dbaaa226"
+    },
+    "web-accessibility": {
+      "source": "supercent-io/skills-template",
+      "sourceType": "github",
+      "computedHash": "18f3c393f2fe364ecd7b0fbf646eafabef4dcb287af948e1414d16c84b4d7628"
     }
   }
 }

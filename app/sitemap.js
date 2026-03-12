@@ -1,39 +1,42 @@
 export default function sitemap() {
   const baseUrl = 'https://velour-studio.vercel.app'; // Actualizar con la URL real después del deploy
 
-  // Obtener productos para incluir en el sitemap
-  // En producción, esto vendría de tu base de datos
+  // IDs reales de los 30 productos del catálogo (app/lib/productos.js)
   const productos = [
-    'vestido-lapiz-clasico',
-    'vestido-tubo-negro',
-    'blazer-sastre-negro',
-    'falda-midi-plisada',
-    'camisa-seda-blanca',
-    'pantalon-sastre-alto',
-    'blusa-escote-v',
-    'vestido-abrigo',
-    'cardigan-punto-camel',
-    'top-lino-beige',
-    'bermuda-sastre-lino',
-    'conjunto-blazer-pantalon',
-    'vestido-lencero-saten',
-    'blazer-terciopelo',
-    'falda-larga-saten',
-    'camisa-transparente',
-    'vestido-asimetrico',
-    'pantalon-pinzas-terciopelo',
-    'body-manga-larga',
-    'top-cruzado-saten',
-    'vestido-co-lino-natural',
-    'camisa-oversize-algodon',
-    'pantalon-linen-blend',
-    'short-cintura-alta',
-    'blusa-espalda-descubierta',
-    'vestido-midi-tirantes',
-    'cardigan-lino-largo',
-    'vestido-edit-8-drapeado',
-    'falda-edit-8-asimetrica',
-    'top-edit-8-nudo'
+    // Velour Clásica
+    'clasica-1',
+    'clasica-2',
+    'clasica-3',
+    'clasica-4',
+    'clasica-5',
+    'clasica-6',
+    'clasica-7',
+    'clasica-8',
+    'clasica-9',
+    'clasica-10',
+    'clasica-11',
+    'clasica-12',
+    // Velour Noche
+    'noche-1',
+    'noche-2',
+    'noche-3',
+    'noche-4',
+    'noche-5',
+    'noche-6',
+    'noche-7',
+    'noche-8',
+    // Velour Co.
+    'co-1',
+    'co-2',
+    'co-3',
+    'co-4',
+    'co-5',
+    'co-6',
+    'co-7',
+    // Velour Edit
+    'edit-1',
+    'edit-2',
+    'edit-3'
   ];
 
   // URLs estáticas

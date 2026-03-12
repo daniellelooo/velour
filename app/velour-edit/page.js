@@ -2,12 +2,15 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { getProductosEdit } from '../lib/productos';
 import { formatearPrecioConSimbolo } from '../lib/utils';
 import { esEmailValido } from '../lib/utils';
+import { useToast } from '../context/ToastContext';
 
 export default function VelourEditPage() {
   const productosEdit = getProductosEdit();
+  const { mostrarToast } = useToast();
   
   const [formData, setFormData] = useState({
     nombre: '',
@@ -83,7 +86,7 @@ export default function VelourEditPage() {
       });
     } catch (error) {
       console.error('Error al registrar en lista de espera:', error);
-      alert('Hubo un error al enviar el formulario. Por favor intenta de nuevo.');
+      mostrarToast('Hubo un error al enviar el formulario. Por favor intenta de nuevo.', 'error');
     } finally {
       setEnviando(false);
     }
@@ -131,8 +134,19 @@ export default function VelourEditPage() {
                   className="group"
                 >
                   <div className="relative">
-                    <div className="aspect-[3/4] bg-neutral-200 mb-4 overflow-hidden">
-                      <div className="w-full h-full bg-gradient-to-br from-neutral-300 to-neutral-400 group-hover:scale-105 transition-transform duration-300" />
+                    <div className="aspect-[3/4] bg-neutral-200 mb-4 overflow-hidden relative">
+                      {producto.imagenes && producto.imagenes[0] ? (
+                        <Image
+                          src={producto.imagenes[0]}
+                          alt={producto.nombre}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-300"
+                          sizes="(max-width: 768px) 100vw, 33vw"
+                          unoptimized
+                        />
+                      ) : (
+                        <div className="w-full h-full bg-gradient-to-br from-neutral-300 to-neutral-400 group-hover:scale-105 transition-transform duration-300" />
+                      )}
                     </div>
                     
                     {/* Badge de unidades restantes */}

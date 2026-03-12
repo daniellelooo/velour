@@ -7,10 +7,12 @@ import Image from 'next/image';
 import { useCart } from '../context/CartContext';
 import { formatearPrecioConSimbolo } from '../lib/utils';
 import { abrirWhatsApp } from '../lib/whatsapp';
+import { useToast } from '../context/ToastContext';
 
 export default function CheckoutPage() {
   const router = useRouter();
   const { cart, removeFromCart, updateQuantity, getCartTotal, getCartCount, clearCart } = useCart();
+  const { mostrarToast } = useToast();
   
   const [formData, setFormData] = useState({
     nombre: '',
@@ -61,7 +63,7 @@ export default function CheckoutPage() {
 
   const handleFinalizarCompra = () => {
     if (!validateForm()) {
-      alert('Por favor completa todos los campos requeridos');
+      mostrarToast('Por favor completa todos los campos requeridos', 'aviso');
       return;
     }
 
@@ -81,15 +83,42 @@ export default function CheckoutPage() {
     cart.forEach((item, index) => {
       mensaje += `%0A${index + 1}. *${item.producto.nombre}*%0A`;
       mensaje += `   Talla: ${item.talla}%0A`;
-      mensaje += `   Cantidad: ${item.quantity}%0A`;
-      mensaje += `   Precio: ${formatearPrecioConSimbolo(item.producto.precio * item.quantity)}%0A`;
+      mensaje += `   Cantidad: ${item.cantidad}%0A`;
+      mensaje += `   Precio: ${formatearPrecioConSimbolo(item.producto.precio * item.cantidad)}%0A`;
     });
 
     mensaje += `%0A*💰 Total: ${formatearPrecioConSimbolo(getCartTotal())}*%0A`;
     mensaje += `%0A_Enviado desde velour-studio.com_`;
 
     // Abrir WhatsApp
-    abrirWhatsApp(`https://wa.me/573001234567?text=${mensaje}`);
+    const numeroWhatsApp = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '573001234567';
+    abrirWhatsApp(`https://wa.me/${numeroWhatsApp}?text=${mensaje}`);
+
+    // Guardar resumen del pedido en sessionStorage para mostrarlo en /gracias
+    try {
+      const resumenPedido = {
+        nombre: formData.nombre,
+        email: formData.email,
+        telefono: formData.telefono,
+        ciudad: formData.ciudad,
+        direccion: formData.direccion,
+        productos: cart.map((item) => ({
+          nombre: item.producto.nombre,
+          talla: item.talla,
+          cantidad: item.cantidad,
+          precio: item.producto.precio,
+        })),
+        total: getCartTotal(),
+        fecha: new Date().toLocaleDateString('es-CO', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+        }),
+      };
+      sessionStorage.setItem('velour-pedido', JSON.stringify(resumenPedido));
+    } catch (e) {
+      console.error('Error al guardar resumen del pedido:', e);
+    }
 
     // Limpiar carrito y redirigir
     setTimeout(() => {
@@ -292,14 +321,14 @@ export default function CheckoutPage() {
                       )}
                       {/* Badge de cantidad */}
                       <div className="absolute top-2 right-2 bg-velour-black text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
-                        {item.quantity}
+                        {item.cantidad}
                       </div>
                     </div>
                     <div className="flex-1 min-w-0">
                       <p className="font-medium text-sm text-neutral-900 truncate">{item.producto.nombre}</p>
                       <p className="text-xs text-neutral-600 mt-1">Talla: {item.talla}</p>
                       <p className="text-sm font-medium text-neutral-900 mt-2">
-                        {formatearPrecioConSimbolo(item.producto.precio * item.quantity)}
+                        {formatearPrecioConSimbolo(item.producto.precio * item.cantidad)}
                       </p>
                     </div>
                   </div>
